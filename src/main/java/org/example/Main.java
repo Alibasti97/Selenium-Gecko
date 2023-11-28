@@ -16,6 +16,8 @@ public class Main {
 
         System.out.println("Successfully Started Web Server");
 
+        // Login Code
+
         WebElement username = driver.findElement(By.id("username"));
         username.sendKeys("alibasti97");
         WebElement password = driver.findElement(By.id("password"));
@@ -24,10 +26,20 @@ public class Main {
 
         WebElement login = driver.findElement(By.id("login"));
         login.click();
-
+    // Verfication
         String text = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]")).getText();
         if (text.contains("Welcome")){
             System.out.println("Welcome to Adactin Group of Hotels");
+        }
+        // Logout Code
+        WebElement logout = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[2]/a[4]"));
+        logout.click();
+
+        // Verfication
+
+        String text1 = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td[1]/table/tbody/tr")).getText();
+        if (text1.contains("logged out")){
+            System.out.println("User has successfully Logged Out");
         }
     }
 
