@@ -18,22 +18,18 @@ public class Main {
 
         // Login Code
 
-        WebElement username = driver.findElement(By.id("username"));
-        username.sendKeys("alibasti97");
-        WebElement password = driver.findElement(By.id("password"));
-        password.sendKeys("Basti@000");
-        password.isDisplayed();
+        POMfle loginitem = new POMfle();
+        loginitem.login(driver);
 
-        WebElement login = driver.findElement(By.id("login"));
-        login.click();
     // Verfication
         String text = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[1]")).getText();
         if (text.contains("Welcome")){
             System.out.println("Welcome to Adactin Group of Hotels");
         }
         // Logout Code
-        WebElement logout = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr[1]/td[2]/a[4]"));
-        logout.click();
+
+        POMfle logoutitem = new POMfle();
+        logoutitem.logout(driver);
 
         // Verfication
 
